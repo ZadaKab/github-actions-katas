@@ -25,5 +25,5 @@ jobs:
       container: gradle:6-jdk11
       steps:
         - name: test
-          run: ci/unit-test-app.sh
+          run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
       
