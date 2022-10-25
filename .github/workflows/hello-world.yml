@@ -17,6 +17,11 @@ jobs:
       runs-on: ubuntu-latest
       container: gradle:6-jdk11
       steps:
+        - name: Download Code
+          uses: actions/download-artifact@v2
+          with:
+            name: code
+            path: .
         - name: build
           run: ci/build-app.sh
   Test:
@@ -24,6 +29,11 @@ jobs:
       runs-on: ubuntu-latest
       container: gradle:6-jdk11
       steps:
+        - name: Download Code
+          uses: actions/download-artifact@v2
+          with:
+            name: code
+            path: .
         - name: test
-          run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
+          run: ci/unit-test-app.sh
       
